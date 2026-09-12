@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Left half of the page: the code area. */
+#textbox {
+  width: 50%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: white !important;
+  color: black !important;
+}
+
+/* Right half of the page: the cats and milk. */
+#gameScreen {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: lightblue !important;
+}
+
+#codeEditor {
+  height: 250px;
+  display: flex;
+  border: 1px solid gray;
+}
+
+#lineNumbers {
+  width: 40px;
+  padding: 10px;
+  background-color: #eeeeee;
+  color: gray;
+  text-align: right;
+  white-space: pre-line;
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+#flexCode {
+  flex: 1;
+  padding: 10px;
+  border: 0;
+  outline: 0;
+  resize: none;
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+#feedback {
+  min-height: 24px;
+}
+
+#nextLevel {
+  margin-top: auto;
+  padding: 10px;
+}
+
+/* Both layers fill the right side. */
+.game-layer {
+  position: absolute;
+  inset: 20px;
+  display: flex;
+}
+
+#milkLayer {
+  z-index: 1;
+}
+
+#characterLayer {
+  z-index: 2;
+}
+
+.character,
+.milk {
+  width: 65px;
+  height: 65px;
+  flex: 0 0 65px;
+}
+
+.character {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.character img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.milk {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 2px solid blue;
+  border-radius: 50%;
+}
+
+.milk::after {
+  content: "MILK";
+  color: blue;
+  font-size: 10px;
+}
+
+/* On narrow screens, keep the same two halves. */
+@media (max-width: 700px) {
+  #textbox {
+    padding: 10px;
+  }
+
+  .game-layer {
+    inset: 10px;
+  }
+
+  .character,
+  .milk {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+  }
+
+  .character img {
+    width: 40px;
+    height: 40px;
+  }
+}
