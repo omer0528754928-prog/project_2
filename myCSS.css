@@ -62,6 +62,32 @@ body {
   min-height: 24px;
 }
 
+#levelNavigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+#levelNavigation button {
+  padding: 6px 10px;
+  border: 1px solid #153e75;
+  border-radius: 5px;
+  background: white;
+  color: #153e75;
+  cursor: pointer;
+}
+
+#levelNavigation button[aria-current="step"] {
+  background: #153e75;
+  color: white;
+}
+
+#levelNavigation button:focus-visible {
+  outline: 3px solid #e69500;
+  outline-offset: 2px;
+}
+
 #nextLevel {
   margin-top: auto;
   padding: 10px;
@@ -80,6 +106,34 @@ body {
 
 #characterLayer {
   z-index: 2;
+}
+
+/* Two items fit per row; the third needs flex-wrap. */
+.wrapping-level > .character,
+.wrapping-level > .milk {
+  width: 45%;
+  flex-basis: 45%;
+}
+
+/* Numbers make reversed order visible while keeping the original cat art. */
+.numbered-level > .character,
+.numbered-level > .milk {
+  position: relative;
+}
+
+.numbered-level > div::before {
+  content: attr(data-number);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #153e75;
+  color: white;
+  text-align: center;
+  font: bold 14px/20px Arial, sans-serif;
 }
 
 .character,
