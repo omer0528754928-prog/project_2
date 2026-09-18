@@ -4,22 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flexbox Cats</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="./myCSS.css" />
   </head>
   <body>
-    <div id="textbox" class="bg-dark text-light">
-      <h1 id="levelTitle" class="display-6">Flexbox Cats</h1>
+    <div id="textbox" class="panel-dark">
+      <h1 id="levelTitle" class="game-heading">Flexbox Cats</h1>
       <nav id="levelNavigation" aria-label="Choose a level"></nav>
       <p id="instructions">
         Move the cats onto the milk using <code>justify-content</code> and
         <code>align-items</code>.
       </p>
+      <div id="helpActions">
+        <button id="hintButton" type="button" class="btn-game btn-secondary-game">
+          Hint
+        </button>
+        <button id="solutionButton" type="button" class="btn-game btn-secondary-game">
+          Show Solution
+        </button>
+      </div>
+      <p id="hintText" aria-live="polite"></p>
       <div id="codeEditor">
         <div id="lineNumbers" aria-hidden="true">1</div>
         <textarea
@@ -30,29 +33,32 @@
         ></textarea>
       </div>
       <p id="feedback" aria-live="polite"></p>
-      <button id="nextLevel" type="button" class="btn btn-success" disabled>
-        Next level
-      </button>
-    </div>
-
-    <div id="gameScreen" class="bg-secondary">
-      <div id="milkLayer" class="game-layer" aria-hidden="true">
-        <div class="milk"></div>
-        <div class="milk"></div>
-        <div class="milk"></div>
-      </div>
-      <div id="characterLayer" class="game-layer">
-        <div class="character"><img src="./cat.jpg" alt="Player cat" /></div>
-        <div class="character"><img src="./cat.jpg" alt="Player cat" /></div>
-        <div class="character"><img src="./cat.jpg" alt="Player cat" /></div>
+      <span id="attemptCount"></span>
+      <div id="levelActions">
+        <button id="resetLevel" type="button" class="btn-game btn-secondary-game">
+          Reset level
+        </button>
+        <button id="nextLevel" type="button" class="btn-game btn-primary-game" disabled>
+          Next level
+        </button>
       </div>
     </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+    <div id="gameScreen" class="panel-light">
+      <div id="board">
+        <div id="milkLayer" class="game-layer" aria-hidden="true">
+          <div class="milk"></div>
+          <div class="milk"></div>
+          <div class="milk"></div>
+        </div>
+        <div id="characterLayer" class="game-layer">
+          <div class="character"><img src="./cat.jpg" alt="Player cat" /></div>
+          <div class="character"><img src="./cat.jpg" alt="Player cat" /></div>
+          <div class="character"><img src="./cat.jpg" alt="Player cat" /></div>
+        </div>
+      </div>
+    </div>
+
     <script src="./myjs.js"></script>
   </body>
 </html>
